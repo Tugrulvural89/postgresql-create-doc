@@ -34,7 +34,7 @@ ALTER ROLE username SET timezone TO 'UTC';
 
 pip install "psycopg[binary,pool]"
 
-# Install env pip
+# Install load env pip
 
 pip install load-dotenv
 
@@ -43,6 +43,17 @@ pip install load-dotenv
 # Create .env file in your project root
 
 # Change settings.py in Django Project
+
+DATABASES = {
+    "default": {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('DATABASE_NAME'),
+        'USER': os.getenv('DATABASE_USER'),
+        'PASSWORD': os.getenv('DATABASE_PASSWORD'),
+        'HOST': os.getenv('DATABASE_HOST'),
+        'PORT': os.getenv('DATABASE_PORT'),
+    }
+}
 
 # Configure your settings.py to use environment variables for database configuration.
 
