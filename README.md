@@ -65,3 +65,9 @@ pip install -r requirements.txt
 
 python manage.py makemigrations
 python manage.py migrate
+
+# if you have already data in the other os:
+
+pg_dump -U [username] -h [host_name] [database_name] > database_name.sql
+psql -U [username] -h [host_name] -d [database_name] < database_name.sql
+
